@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Chat from "./chat";
-//import Create_question from "./create_question";
-import db from "./firebase";
 import Sidebar from "./sidebar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./Login";

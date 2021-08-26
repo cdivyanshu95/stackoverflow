@@ -25,7 +25,7 @@ function Chat() {
           setBody(snapshot.docs.map((doc) => doc.data()))
         );
     }
-  }, [roomID]);
+  });
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -37,6 +37,19 @@ function Chat() {
     });
     setInput("");
   };
+  const delMessage = (e) => {
+    e.preventDefault();
+    db.collection("rooms").doc(roomID).delete();
+  };
+  // const delMessage = (e) => {
+  //   e.preventDefault();
+  //   db.collection("rooms").doc(roomID).collection("body").add({
+  //     body: "Accepted, Question is Answered",
+  //     name: user.displayName,
+  //     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+  //   });
+  //   setInput("");
+  // };
   return (
     <div>
       <div>
@@ -64,6 +77,9 @@ function Chat() {
           />
           <button onClick={sendMessage} type="submit">
             Reply
+          </button>
+          <button onClick={delMessage} type="submit">
+            accept
           </button>
         </form>
       </div>
