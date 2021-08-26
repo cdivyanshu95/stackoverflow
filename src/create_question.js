@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import db from "./firebase";
 
 function Create_question({ id, name, addNewChat }) {
@@ -12,10 +13,12 @@ function Create_question({ id, name, addNewChat }) {
   };
 
   return !addNewChat ? (
-    <div>
-      <h1>{name}</h1>
-      <h4>TAGS</h4>
-    </div>
+    <Link to={`/rooms/${id}`}>
+      <div>
+        <h1>{name}</h1>
+        <h4>TAGS</h4>
+      </div>
+    </Link>
   ) : (
     <div onClick={createQuestion}>
       <h1>add new question here</h1>
