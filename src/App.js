@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Chat from "./chat";
+import Create_question from "./create_question";
+import db from "./firebase";
+import Sidebar from "./sidebar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Switch>
+          <Sidebar />
+          <Route path="/rooms/:roomID">
+            <Chat />
+          </Route>
+
+          <Route path="/">{/* <Chat /> */}</Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
