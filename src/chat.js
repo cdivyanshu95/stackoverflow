@@ -25,7 +25,7 @@ function Chat() {
           setBody(snapshot.docs.map((doc) => doc.data()))
         );
     }
-  });
+  }, [roomID]);
 
   const sendMessage = (e) => {
     e.preventDefault();
