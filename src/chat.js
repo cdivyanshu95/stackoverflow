@@ -37,19 +37,19 @@ function Chat() {
     });
     setInput("");
   };
+  // const delMessage = async (e) => {
+  //   e.preventDefault();
+  //   db.collection("rooms").doc(roomID).delete();
+  // };
   const delMessage = (e) => {
     e.preventDefault();
-    db.collection("rooms").doc(roomID).delete();
+    db.collection("rooms").doc(roomID).collection("body").add({
+      body: "Accepted, Question is Answered",
+      name: user.displayName,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+    setInput("");
   };
-  // const delMessage = (e) => {
-  //   e.preventDefault();
-  //   db.collection("rooms").doc(roomID).collection("body").add({
-  //     body: "Accepted, Question is Answered",
-  //     name: user.displayName,
-  //     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-  //   });
-  //   setInput("");
-  // };
   return (
     <div>
       <div>

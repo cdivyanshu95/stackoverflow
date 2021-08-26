@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import db from "./firebase";
+import "./create_question.css";
 
 function Create_question({ id, name, tag, addNewChat }) {
   const createQuestion = () => {
@@ -25,7 +26,7 @@ function Create_question({ id, name, tag, addNewChat }) {
   ) : (
     <div onClick={createQuestion}>
       <Button type="submit">
-        <h1>Ask Question</h1>
+        <h1 className="btn">Ask Question Here</h1>
       </Button>
     </div>
   );
